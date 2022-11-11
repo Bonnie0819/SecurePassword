@@ -12,20 +12,14 @@ public class SecurePassword {
     }
 
 
-    /* Returns true if password:
-       - Is at least 8 characters long
-       - Contains at least one uppercase letter
-       - Contains at least one lowercase letter
-       - Contains at least one numeric digit
-       - Contains at least one of these "special symbols":  ! @ # $ % ^ & * ?
-       Must satisfy ALL FIVE categories for password to be "secure"
-       Return false if any of the above security requirements are not fulfilled.
-    */
+    // Returns true if password:
     public boolean isSecure() {
-        return false;
-        /* to be implemented */
-        // You should first write the six private "helper" methods
-        // below and use them as needed in this method’s implementation
+        if(isLongEnough() && containsLowercase() && containsUppercase() && containsDigit() &&
+        containsSpecialSymbol()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -44,11 +38,23 @@ public class SecurePassword {
         The password must contain a special symbol: ! @ # $ % ^ & * ?"
     */
     public String status() {
-        return "";
-        /* to be implemented */
-
-        // You should first write the six private "helper" methods
-        // below and use them as needed in this method’s implementation
+        String conditions = "";
+        if(!isLongEnough()) {
+            conditions += "The password must be at least 8 characters \n";
+        }
+        if(!containsLowercase()) {
+            conditions += "The password must contain at least one lower case character \n";
+        }
+        if(!containsUppercase()) {
+            conditions += "The password must contain at least one upper case character \n";
+        }
+        if(!containsDigit()) {
+            conditions += "The password must contain at least one digit \n";
+        }
+        if(!containsSpecialSymbol()) {
+            conditions += "The password must contain a special symbol: ! @ # $ % ^ & * ? \n";
+        }
+        return conditions;
     }
 
 
@@ -115,10 +121,38 @@ public class SecurePassword {
 
 
     /* Returns true if the password has at least one of these special symbols:
-       ! @ # $ % ^ & * ?    and false otherwise.
-     */
+       ! @ # $ % ^ & * ?    and false otherwise. */
     private boolean containsSpecialSymbol() {
-        /* to be implemented */
+        if(password.indexOf("!") != -1) {
+            return true;
+        }
+        if(password.indexOf("@") != -1) {
+            return true;
+        }
+        if(password.indexOf("#") != -1) {
+            return true;
+        }
+        if(password.indexOf("$") != -1) {
+            return true;
+        }
+        if(password.indexOf("%") != -1) {
+            return true;
+        }
+        if(password.indexOf("^") != -1) {
+            return true;
+        }
+        if(password.indexOf("&") != -1) {
+            return true;
+        }
+        if(password.indexOf("*") != -1) {
+            return true;
+        }
+        if(password.indexOf("?") != -1) {
+            return true;
+        }
+        if(password.indexOf(8) != -1) {
+            return true;
+        }
         return false;
     }
 
