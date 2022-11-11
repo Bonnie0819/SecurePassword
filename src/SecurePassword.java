@@ -12,7 +12,7 @@ public class SecurePassword {
     }
 
 
-    // Returns true if password:
+    // Returns true if password meets all of the requirements
     public boolean isSecure() {
         if(isLongEnough() && containsLowercase() && containsUppercase() && containsDigit() &&
         containsSpecialSymbol()) {
@@ -22,40 +22,33 @@ public class SecurePassword {
         }
     }
 
-
     /* Returns a String that contains information about the security status of the
-       current password.
+       current password. */
 
-       If isSecure() is true, this method returns the string "Password is secure"
-       If isSecure() is false, this methods should return a single String that informs the
-       user of which security requirements are not currently being met.
 
-       For example, the password 3WrT6tH does not meet length or special symbol
-       requirements, so this method should return the following String (using a line
-       break \n):
-
-       "The password must be at least 8 characters
-        The password must contain a special symbol: ! @ # $ % ^ & * ?"
-    */
     public String status() {
         String conditions = "";
-        if(!isLongEnough()) {
-            conditions += "The password must be at least 8 characters \n";
+        if(isSecure()) {
+            conditions += "Password is secure";
+        }else {
+            if (!isLongEnough()) {
+                conditions += "The password must be at least 8 characters \n";
+            }
+            if (!containsLowercase()) {
+                conditions += "The password must contain at least one lower case character \n";
+            }
+            if (!containsUppercase()) {
+                conditions += "The password must contain at least one upper case character \n";
+            }
+            if (!containsDigit()) {
+                conditions += "The password must contain at least one digit \n";
+            }
+            if (!containsSpecialSymbol()) {
+                conditions += "The password must contain a special symbol: ! @ # $ % ^ & * ? \n";
+            }
         }
-        if(!containsLowercase()) {
-            conditions += "The password must contain at least one lower case character \n";
+            return conditions;
         }
-        if(!containsUppercase()) {
-            conditions += "The password must contain at least one upper case character \n";
-        }
-        if(!containsDigit()) {
-            conditions += "The password must contain at least one digit \n";
-        }
-        if(!containsSpecialSymbol()) {
-            conditions += "The password must contain a special symbol: ! @ # $ % ^ & * ? \n";
-        }
-        return conditions;
-    }
 
 
     // PRIVATE "HELPER" METHODS
@@ -87,35 +80,27 @@ public class SecurePassword {
     private boolean containsDigit() {
         if(password.indexOf(0) != -1) {
             return true;
-        }
-        if(password.indexOf(1) != -1) {
+        } else if(password.indexOf("1") != -1) {
             return true;
-        }
-        if(password.indexOf(2) != -1) {
+        } else if(password.indexOf("2") != -1) {
             return true;
-        }
-        if(password.indexOf(3) != -1) {
+        } else if(password.indexOf("3") != -1) {
             return true;
-        }
-        if(password.indexOf(4) != -1) {
+        } else if(password.indexOf("4") != -1) {
             return true;
-        }
-        if(password.indexOf(5) != -1) {
+        } else if(password.indexOf("5") != -1) {
             return true;
-        }
-        if(password.indexOf(6) != -1) {
+        } else if(password.indexOf("6") != -1) {
             return true;
-        }
-        if(password.indexOf(7) != -1) {
+        } else if(password.indexOf("7") != -1) {
             return true;
-        }
-        if(password.indexOf(8) != -1) {
+        } else if(password.indexOf("8") != -1) {
             return true;
-        }
-        if(password.indexOf(9) != -1) {
+        } else if(password.indexOf("9") != -1) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
 

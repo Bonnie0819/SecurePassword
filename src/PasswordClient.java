@@ -20,6 +20,6 @@ public class PasswordClient {
             System.out.println("Enter a new secure password: ");
             pwd.setPassword(scanner.nextLine());
         }
-        System.out.println("Password is secure");
+        System.out.println(pwd.status());
     }
 }
