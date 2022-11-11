@@ -70,20 +70,47 @@ public class SecurePassword {
         return checkString(upperCaseLetters);  // this method implemented below
     }
 
-
-    /* Returns true if the password has at least one lowercase letter and false otherwise.
-     */
+    // Returns true if the password has at least one lowercase letter and false otherwise.
     private boolean containsLowercase() {
-        /* to be implemented */
-        return false;
+        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        return checkString(lowerCaseLetters);   //this method implemented below
     }
 
 
     /* Returns true if the password has at least one digit and false otherwise.
      */
     private boolean containsDigit() {
+        if(password.indexOf(0) != -1) {
+            return true;
+        }
+        if(password.indexOf(1) != -1) {
+            return true;
+        }
+        if(password.indexOf(2) != -1) {
+            return true;
+        }
+        if(password.indexOf(3) != -1) {
+            return true;
+        }
+        if(password.indexOf(4) != -1) {
+            return true;
+        }
+        if(password.indexOf(5) != -1) {
+            return true;
+        }
+        if(password.indexOf(6) != -1) {
+            return true;
+        }
+        if(password.indexOf(7) != -1) {
+            return true;
+        }
+        if(password.indexOf(8) != -1) {
+            return true;
+        }
+        if(password.indexOf(9) != -1) {
+            return true;
+        }
         return false;
-        /* to be implemented */
     }
 
 
