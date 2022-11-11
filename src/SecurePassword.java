@@ -58,7 +58,6 @@ public class SecurePassword {
     }
 
 
-
     // PRIVATE "HELPER" METHODS
     //Checks to see if the password is long enough
     private boolean isLongEnough() {
